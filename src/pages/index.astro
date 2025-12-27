@@ -1,19 +1,123 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
+import { Image } from 'astro:assets';
+import fluxBanner from '../assets/flux_banner.png';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+const services = [
+    {
+        title: 'Asset Systems',
+        description: 'Custom asset management systems to organize and distribute your Roblox game assets efficiently.',
+        icon: '📦'
+    },
+    {
+        title: 'Game Systems',
+        description: 'Complete gameplay systems including combat, inventory, progression, and more - fully customizable.',
+        icon: '🎮'
+    },
+    {
+        title: 'UI/UX Design',
+        description: 'Modern and clean user interfaces that enhance player experience and engagement.',
+        icon: '✨'
+    },
+    {
+        title: 'Custom Scripts',
+        description: 'Tailored Lua scripts and modules to bring your unique game ideas to life.',
+        icon: '⚡'
+    }
+];
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+const discordLink = 'https://discord.gg/5cB2dtVVCN';
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Flux Development - Roblox Development Services">
+    <!-- Hero Section with Banner -->
+    <section class="text-center mb-20">
+        <div class="mb-8 overflow-hidden rounded-2xl border border-white/10">
+            <Image
+                src={fluxBanner}
+                alt="Flux Development Banner"
+                class="w-full h-auto"
+            />
+        </div>
+        <h1 class="mb-6">
+            <span class="gradient-text">Premium Roblox Development</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            We build high-quality asset systems, game mechanics, and custom scripts for Roblox at affordable prices.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#pricing" class="btn btn-lg">View Pricing</a>
+            <a href="#contact" class="btn btn-lg btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="mb-20">
+        <h2 class="text-center mb-12">
+            <span class="gradient-text">Our Services</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((service) => (
+                <div class="card hover:border-primary/30 transition-all">
+                    <div class="text-4xl mb-4">{service.icon}</div>
+                    <h3 class="mb-2">{service.title}</h3>
+                    <p class="text-gray-400">{service.description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="mb-20">
+        <div class="card text-center max-w-2xl mx-auto">
+            <h2 class="mb-4">
+                <span class="gradient-text">Cheap Prices, Quality Work</span>
+            </h2>
+            <p class="text-gray-400 mb-6">
+                We believe great Roblox development shouldn't break the bank. Check our prices here and let's discuss your project!
+            </p>
+            <a href={discordLink} target="_blank" rel="noopener noreferrer" class="btn btn-lg">
+                Check Prices on Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="mb-20">
+        <h2 class="text-center mb-12">
+            <span class="gradient-text">Why Choose Flux?</span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            <div>
+                <div class="text-4xl mb-4">💰</div>
+                <h3 class="text-lg font-semibold mb-2">Affordable Prices</h3>
+                <p class="text-gray-400">Quality development at prices that won't empty your wallet.</p>
+            </div>
+            <div>
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="text-lg font-semibold mb-2">Fast Delivery</h3>
+                <p class="text-gray-400">Quick turnaround times without compromising on quality.</p>
+            </div>
+            <div>
+                <div class="text-4xl mb-4">🛡️</div>
+                <h3 class="text-lg font-semibold mb-2">Reliable Support</h3>
+                <p class="text-gray-400">We're here to help even after delivery is complete.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mb-10">
+        <div class="card text-center max-w-2xl mx-auto">
+            <h2 class="mb-4">
+                <span class="gradient-text">Ready to Get Started?</span>
+            </h2>
+            <p class="text-gray-400 mb-6">
+                Join our Discord server to discuss your project and get a custom quote. We respond within 24 hours!
+            </p>
+            <a href={discordLink} target="_blank" rel="noopener noreferrer" class="btn btn-lg">
+                Join Our Discord
+            </a>
+        </div>
+    </section>
 </Layout>
