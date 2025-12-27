@@ -2,8 +2,14 @@
 
 ---
 
-<footer class="pt-16 pb-12 sm:pt-24 sm:pb-16">
-    <p class="text-sm">
-        <a href="https://docs.netlify.com/frameworks/astro/" class="decoration-dashed text-primary underline-offset-8"> Astro on Netlify </a>
-    </p>
+<footer class="pt-16 pb-12 sm:pt-24 sm:pb-16 border-t border-white/10">
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-gray-400">
+            &copy; {new Date().getFullYear()} Flux Development. All rights reserved.
+        </p>
+        <div class="flex gap-6">
+            <a href="#contact" class="text-gray-400 hover:text-primary no-underline transition">Contact</a>
+            <a href="https://discord.gg/5cB2dtVVCN" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary no-underline transition">Discord</a>
+        </div>
+    </div>
 </footer>
